@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Login</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<style>
+		body{
+			background: url(imgs/registro.png)no-repeat;
+			background-size: cover;
+		}
+		h1 {
+			text-align: center;
+			color: white;
+		}
+		
+		#btn {
+			position: absolute;
+			left: 47%;
+		}
+
+		.boxlogin {
+			border-radius: 4px;
+			margin: 50px auto;
+			width: 380px;
+			-webkit-border-radius: 4px;
+			-moz-border-radius: 4px;
+			background-color: rgba(20,20,20,0.5);
+			color: white;
+		}
+	</style>
+
+</head>
+<body>
+	<h1>Registro</h1>
+	<div class="boxlogin">
+		<form action="" METHOD="POST" name="flogin" id="flogin">
+			<label for="">Nombre de usuario</label>
+			<input type="text" name="username" id="username" class="form-control" placeholder="Escriba su nombre completo">
+			<label for="">Correo Electronico</label>
+			<input type="email" name="email" class="form-control" placeholder="Escriba su correo electronico">
+
+			<label for="">Nickname</label>
+			<input type="text" name="nick" class="form-control" placeholder="Escriba su nickname">
+
+			<label for="">Contraseña</label>
+			<input type="password" name="pass" id="pass" class="form-control" placeholder="Escriba su contraseña">
+
+			<label for="">Repita su contraseña</label>
+			<input type="password" name="repass" id="repass" class="form-control" placeholder="Repita su contraseña">
+			<br>
+			<input type="submit" class="btn btn-success" id="btn" value="Ingresar">
+		</form>
+	</div>
+
+	
+</body>
+</html>

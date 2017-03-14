@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Index</title>
+<link rel="stylesheet" href="css/menu.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/owl.carousel.min.css">
+<link rel="stylesheet" href="css/owl.theme.default.min.css">
+<style>
+
+
+*{
+	padding:0;margin:0;
+}
+body{
+	font:16px/1 sans-serif
+	background-color: #fff;
+	background-image: url(imgs/index.jpg);
+}
+header{
+  background-color: rgba(20,20,20,0.5);
+  padding: 5px;
+}
+
+img.logo {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 530px;
+  top: 15px;
+}
+h1{
+  text-align: center;
+  color: gray;
+ 
+}
+nav.vertical{
+  position:relative;
+
+  background-color: rgba(20,20,20,0.5);
+}
+nav{
+  height: 800px;
+  width: 300px;
+}
+
+nav.vertical ul{
+  list-style: none;
+}
+
+nav.vertical li{
+  position:relative;
+}
+
+nav.vertical a{
+  display:block;
+  color:#eee;
+  text-decoration:none;
+  padding:10px 15px;
+  transition:0.2s;
+}
+
+nav.vertical li:hover > a{
+  background:#778;
+}
+
+
+nav.vertical ul ul{
+  background:rgba(0,0,0,0.1);
+  padding-left:20px;
+  transition: max-height 0.2s ease-out;
+  max-height:0;
+  overflow:hidden;
+}
+
+nav.vertical li:hover > ul{
+  max-height:500px;
+  transition: max-height 0.25s ease-in;
+}
+
+
+img.img1{
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  top: 10px;
+  left: 250px;
+}
+
+section {
+  position: absolute;
+  left: 350px;
+  top: 120px;
+  text-align: center;
+}
+article#se{
+ 
+  width: 800px;
+  height: 500px;
+ 
+}
+article#se img{
+  width: 800px;
+  height: 400px;
+}
+h2{
+  color: #fff;
+}
+
+
+</style>
+</head>
+<body>
+<header>
+  <img class="logo" src="imgs/logo.PNG" alt="">
+  <h1>JCMM GAMES</h1>
+</header>
+<nav class="vertical">
+  <ul>
+     <li><img class="img1" src="imgs/capturau.PNG" alt=""><a href="#">Gestion Catalogos</a>
+      <ul>
+        <li><img class="img1" src="imgs/capturac.PNG" alt=""><a href="#">Consultar</a></li>
+        <li><img class="img1" src="imgs/capturag.PNG" alt=""><a href="#">Añadir</a></li>
+      </ul>
+    </li>
+     <li><img class="img1" src="imgs/capturau.PNG" alt=""><a href="#">Gestion Productos</a>
+      <ul>
+
+        <li><img class="img1" src="imgs/capturac.PNG" alt=""><a href="#">Consultar</a></li>
+        <li><img class="img1" src="imgs/capturag.PNG" alt=""><a href="#">Añadir</a></li>
+      </ul>
+    </li>
+    
+  </ul>
+</nav>
+
+
+</body>
+</html>
