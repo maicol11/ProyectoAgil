@@ -1,0 +1,48 @@
+
+body{
+	font-family: Arial;
+	background-image: url(../imgs/capcom.jpg);
+	-webkit-background-size: 100%;
+	background-size: 100%;
+	
+}
+h1{
+	text-align: center;
+}
+body h1{
+	color: white;
+}
+section{
+	width: 1350px;
+	height: 800px;
+	margin: 0px auto;
+}
+div{
+	background-color: rgba(28,28,28,0.5);
+	width: 300px;
+	height: 350px;
+	text-align: center;
+	border: 1px solid;
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 20px;
+	margin-top: 10px;
+}
+div h5{
+	color: #fff;
+}
+img{
+	width: 250px;
+	height: 150px;
+}
+p{
+	color: #fff;
+}
+h5:hover, img:hover, p:hover{
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
+	transition: all 1s;
+}
+a:hover{
+	color: #fff;
+}
