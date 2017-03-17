@@ -11,12 +11,12 @@
 
 
 *{
-	padding:0;margin:0;
+  padding:0;margin:0;
 }
 body{
-	font:16px/1 sans-serif
-	background-color: #fff;
-	background-image: url(imgs/index.jpg);
+  font:16px/1 sans-serif
+  background-color: #fff;
+  background-image: url(imgs/index.jpg);
 }
 header{
   background-color: rgba(20,20,20,0.5);
@@ -152,18 +152,27 @@ table {
 <nav class="vertical">
   <ul>
     <li><img class="img1" src="imgs/capturau.PNG" alt=""><a href="#" >Usuarios
-    	</a></li>
+      </a></li>
     <li><img class="img1" src="imgs/capturau.PNG" alt=""><a href="#">Gestion Administradores</a>
       <ul>
         <li><img class="img1" src="imgs/capturac.PNG" alt=""><a href="#" id="consultar">Consultar</a></li>
         <li><img class="img1" src="imgs/capturag.PNG" alt=""><a href="#" id="add">Añadir</a></li>
       </ul>
     </li>
-     <li><img class="img1" src="imgs/capturau.PNG" alt=""><a href="#">Gestion Empleados</a>
+     <li><img class="img1" src="imgs/capturar.PNG" alt=""><a href="#">Gestion Catalogos</a>
       <ul>
         <li><img class="img1" src="imgs/capturac.PNG" alt=""><a href="#">Consultar</a></li>
         <li><img class="img1" src="imgs/capturag.PNG" alt=""><a href="#">Añadir</a></li>
       </ul>
+    </li>
+     <li><img class="img1" src="imgs/capturae.PNG" alt=""><a href="#">Gestion Productos</a>
+      <ul>
+
+        <li><img class="img1" src="imgs/capturac.PNG" alt=""><a href="#">Consultar</a></li>
+        <li><img class="img1" src="imgs/capturag.PNG" alt=""><a href="#">Añadir</a></li>
+      </ul>
+    </li>
+    <li><img class="img1" src="imgs/capturaf.PNG" alt=""><a href="cerrar_sesion.php">Cerrar Sesion</a>
     </li>
   </ul>
 </nav>
@@ -285,5 +294,3 @@ table {
 
 </body>
 </html>
-
-

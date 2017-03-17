@@ -6,7 +6,7 @@
  			if(mysqli_num_rows($query) > 0){
  				$row = mysqli_fetch_array($query);
  				$_SESSION['nombre'] = $row['nombre']." ".$row['nickname']; 		
- 				header("location: dashboard.html");		
+ 				header("location: dashboard_logueo.php");		
  			}else {
  				echo "<script>
  					alert('Email o Contraseña Incorrectos');

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Index</title>
+<?php session_start(); ?>
+
 <link rel="stylesheet" href="css/menu.css">
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/owl.carousel.min.css">
@@ -110,6 +112,13 @@ h2{
 
 
 </style>
+<?php 
+  $con = mysqli_connect('localhost','root','','proyectoagil');
+      if(mysqli_connect_errno()){
+        echo "No se pudo conectar a la BD".mysqli_error();
+      }
+
+ ?>
 </head>
 <body>
 <header>
@@ -118,8 +127,7 @@ h2{
 </header>
 <nav class="vertical">
   <ul>
-    <li><img class="img1" src="imgs/Captura.PNG" alt=""><a href="#" class="ca1" >Inicio
-    	</a></li>
+    <li><img class="img1" src="imgs/Captura.PNG" alt=""><a href=""><?php echo $_SESSION['nombre'];?></a></li>
     <li><img class="img1" src="imgs/capturah.PNG" alt=""><a href="#">Catalogo de venta</a>
       <ul>
         <li><a href="catalogo_ventas.html">Todos los juegos</a></li>
@@ -128,9 +136,8 @@ h2{
         <li><a href="cv_capcom.html">Capcom</a></li>
       </ul>
     </li>
-    <li><img class="img1" src="imgs/capturaf.PNG" alt=""><a href="login.php">Login</a>
+    <li><img class="img1" src="imgs/capturaf.PNG" alt=""><a href="cerrar_sesion.php">Cerrar Sesion</a>
     </li>
-    <li><img class="img1" src="imgs/capturag.PNG" alt=""><a href="registro.php">Registro</a></li>
   </ul>
 </nav>
 

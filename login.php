@@ -43,7 +43,7 @@
 			<label for="">Nombre de usuario:</label>
 			<input type="text" name="nickname" id="username" class="form-control">
 			<label for="">Contraseña:</label>
-			<input type="text" name="pass" id="password" class="form-control">
+			<input type="password" name="pass" id="password" class="form-control">
 			<br>
 			<input type="submit" name="validacionuser" class="btn btn-success" id="btn" value="Ingresar">
 		</form>
@@ -55,7 +55,7 @@
 			<label for="">Correo:</label>
 			<input type="text" name="correo" id="email" class="form-control">
 			<label for="">Contraseña:</label>
-			<input type="text" name="contrasena" id="password" class="form-control">
+			<input type="password" name="contrasena" id="password" class="form-control">
 			<br>
 			<input type="submit" name="validacionadm" class="btn btn-success" id="btn2" value="Ingresar">
 		</form>
