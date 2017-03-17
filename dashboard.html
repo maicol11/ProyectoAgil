@@ -108,8 +108,49 @@ h2{
   color: #fff;
 }
 
+article#sa div{
+  width: 226px;
+  height: 58px;
+  font-family: "Motiva Sans", Sans-serif;
+  font-weight: 300;
+  display: inline-block;
+  font-size: 18px;
+  line-height: 56px;
+  color: #66c0f4;
+  text-align: center;
+  background-image: url(imgs/boton.jpg);
+  border-radius: 3px;
+  box-shadow: 0 0 4px #000;
+}
+
+article#sa div:hover{
+  background-position-y: -142px;
+  color: white;
+}
+article#sa div a {
+  text-decoration: none;
+  color: white;
+}
+
+
+
+article#sa div a:hover{
+  text-decoration: none;
+}
+
+html, body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+
+      }
+      #map {
+        height: 60%;      
+      }
 
 </style>
+
 </head>
 <body>
 <header>
@@ -137,7 +178,7 @@ h2{
 <section>
   <h2>Ultimos juegos</h2>
   <article id="se" class="owl-carousel owl-theme">
-    <img src="imgs/hzd.jpg" alt="">
+    <img src="imgs/horizonzd-0.jpg" alt="">
     <img src="imgs/ff.jpg" alt="">
     <img src="imgs/na.jpg" alt="">
     <img src="imgs/m3.jpg" alt="">
@@ -145,7 +186,18 @@ h2{
     <img src="imgs/rs.jpg" alt="">
     <img src="imgs/se4.jpg" alt="">
 </article>
+<article  id="sa">
+   <div><a href="">Novedades</a></div>
+   <div><a href="">Especiales</a></div>
+   <div><a href="">Juegos Gratuitos</a></div>
+   <div><a href="">Noticias</a></div>
+</article>
 </section>
+
+
+<div id="map"></div>
+
+
 <script src="js/jquery-3.1.1.js"></script>
   <script src="js/owl.carousel.min.js"></script>
   <script>
@@ -157,6 +209,20 @@ h2{
           items: 1
     });
   });
+  </script>
+ <script>
+
+  var map;
+  function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -34.397, lng: 150.644},
+    zoom: 8
+  });
+  }
+
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"
+        async defer>          
   </script>
 </body>
 </html>
