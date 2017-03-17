@@ -70,7 +70,7 @@
 							$row=mysqli_query($con,$query);
 							if ($row) {
 								echo "<script>alert('exito');
-								windows.location.replace(dashboard.php);
+								windows.location.replace(dashboard.html);
 								</script>";
 							}else{
 								echo "<script>alert('no conect')</script>";

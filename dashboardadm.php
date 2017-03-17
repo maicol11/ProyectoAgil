@@ -217,38 +217,38 @@ table {
     <div id="frad" class="boxlogin">
      <form action="" METHOD="POST" name="flogin" id="flogin">
       <label for="">Nombre</label>
-      <input type="text" name="nombre" id="username" class="form-control" placeholder="Escriba su nombre">
+      <input type="text" name="nombre" id="username" class="form-control" placeholder="Escriba su nombre" onkeypress="return soloLetras(event)" required>
 
       <label for="">Apellido</label>
-      <input type="text" name="apellido" class="form-control" placeholder="Escriba su apellido">
+      <input type="text" name="apellido" class="form-control" placeholder="Escriba su apellido" onkeypress="return soloLetras(event)" required>
 
       <label for="">Edad</label>
-      <input type="number" name="edad" class="form-control" placeholder="Escriba su edad">
+      <input type="number" name="edad" class="form-control" placeholder="Escriba su edad" required>
       
       <label for="">Correo ELectronico</label>
-      <input type="email" name="correo" class="form-control" placeholder="Escriba su correo electronico">
+      <input type="email" name="correo" class="form-control" placeholder="Escriba su correo electronico" required>
 
       <label for="">Cedula</label>
-      <input type="text" name="cedula" id="pass" class="form-control" placeholder="Escriba el numero de su cedula">
+      <input type="number" name="cedula" class="form-control" placeholder="Escriba el numero de su cedula">
 
       <label for="">Ocupacion</label>
-      <input type="text" name="ocupacion" id="repass" class="form-control" placeholder="Ocupacion">
+      <input type="text" name="ocupacion" class="form-control" placeholder="Ocupacion" onkeypress="return soloLetras(event)" required>
 
       <label for="">Telefono</label>
-      <input type="number" name="telefono" id="repass" class="form-control" placeholder="Escriba su telefono">
+      <input type="number" name="telefono"  class="form-control" placeholder="Escriba su telefono" required>
 
       <label for="">Direccion</label>
-      <input type="text" name="direccion" id="repass" class="form-control" placeholder="Direccion">
+      <input type="text" name="direccion" class="form-control" placeholder="Direccion" required>
 
       <label for="">Contraseña</label>
-      <input type="password" name="contrasena" id="repass" class="form-control" placeholder="Repita su contraseña">
+      <input type="password" name="contrasena" id="pass" class="form-control" placeholder="Repita su contraseña" required>
       
       <label for="">Repita su contraseña</label>
-      <input type="password" name="recontrasena" id="repass" class="form-control" placeholder="Repita su contraseña">
+      <input type="password" name="recontrasena" id="repass" class="form-control" placeholder="Repita su contraseña" required>
 
 
       <br>
-      <input type="submit" class="btn btn-success" id="btn" value="Ingresar">
+      <input type="submit" name="addadm" class="btn btn-success" id="btn" value="Ingresar">
     </form>
 
   </div>
@@ -290,6 +290,49 @@ table {
   }
 
 </script>
+
+ <script>
+  function soloLetras(e) {
+    key = e.keyCode || e.which;
+    tecla = String.fromCharCode(key).toLowerCase();
+    letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+    especiales = [8, 37, 39, 46];
+
+    tecla_especial = false
+    for(var i in especiales) {
+        if(key == especiales[i]) {
+            tecla_especial = true;
+            break;
+        }
+    }
+
+    if(letras.indexOf(tecla) == -1 && !tecla_especial)
+        return false;
+}
+
+
+   </script>
+
+   <script> 
+    function validar(f) {
+      if(f.pass.value != "" && (f.pass.value == f.repass.value)){
+      return true;
+    }
+      else{
+      alert("Los Password no coinciden");
+      return false;
+      }
+
+    }
+
+   </script>
+<?php 
+  if($_POST){
+    if(isset($_POST['addadm'])){
+      require "anadiradm.php";
+    }
+  }
+ ?>
 
 
 </body>
