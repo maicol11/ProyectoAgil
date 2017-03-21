@@ -3,8 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Login</title>
-	<?php session_start(); ?>
-	<link rel="stylesheet" href="css/bootstrap.css">
+<?php session_start();?>
+<link rel="stylesheet" href="css/bootstrap.css">
 	<style>
 		body{
 		background: url(imgs/login.jpg);
@@ -13,7 +13,7 @@
 			text-align: center;
 			color: white;
 		}
-		
+
 		#btn, #btn2{
 			position: absolute;
 			left: 47%;
@@ -54,7 +54,7 @@
 			<input type="password" name="pass" id="password" class="form-control">
 			<br>
 			<input type="submit" name="validacionuser" class="btn btn-success" id="btn" value="Ingresar">
-			<input type="button" onclick=" location.href='dashboard.html'" class="btn btn-info" id="btn1" value="Regresar" /> 
+			<input type="button" onclick=" location.href='dashboard.html'" class="btn btn-info" id="btn1" value="Regresar" />
 		</form>
 	</div>
 	<div>
@@ -93,19 +93,19 @@
 			back.style.display = 'none';
 		}
 	</script>
-	<?php 
-		if($_POST){
-			$con = mysqli_connect('localhost','root','','proyectoagil');
-			if(mysqli_connect_errno()){
-				echo "No se pudo conectar a la BD".mysqli_error();
-			}
-			if(isset($_POST['validacionuser'])){
-				require "validacion_loguin_u.php";
-			}
-			if(isset($_POST['validacionadm'])){
-				require "validacion_loguin_a.php";
-			}
- 		}
-	 ?>
+<?php
+if ($_POST) {
+	$con = mysqli_connect('localhost', 'root', '', 'proyectoagil');
+	if (mysqli_connect_errno()) {
+		echo "No se pudo conectar a la BD".mysqli_error();
+	}
+	if (isset($_POST['validacionuser'])) {
+		require "validacion_loguin_u.php";
+	}
+	if (isset($_POST['validacionadm'])) {
+		require "validacion_loguin_a.php";
+	}
+}
+?>
 </body>
 </html>

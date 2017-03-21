@@ -10,7 +10,9 @@
 
 
 *{
-  padding:0;margin:0;
+  padding:0;
+margin:0;
+
 }
 body{
   font:16px/1 sans-serif
@@ -32,7 +34,7 @@ img.logo {
 h1{
   text-align: center;
   color: gray;
- 
+
 }
 nav.vertical{
   position:relative;
@@ -94,10 +96,10 @@ section {
   text-align: center;
 }
 article#se{
- 
+
   width: 800px;
   height: 500px;
- 
+
 }
 article#se img{
   width: 800px;
@@ -122,7 +124,7 @@ h1 {
   text-align: center;
   color: gray;
 }
-    
+
 #btn {
   position: absolute;
   left: 40%;
@@ -179,7 +181,7 @@ div.boxlogin {
 </nav>
 <section>
 
-  <h2 id="titulo">Administradores</h2> 
+  <h2 id="titulo">Administradores</h2>
   <table id="tabla" class="table table-striped">
       <tr>
         <td>Nombre</td>
@@ -193,12 +195,12 @@ div.boxlogin {
         <td></td>
         <td></td>
       </tr>
-  
-    <?php
-      $con=mysqli_connect('localhost','root','','proyectoagil');
-      $query=mysqli_query($con,"SELECT * FROM administrador");
-      while ($row=mysqli_fetch_array($query)) {
-        echo "
+
+<?php
+$con   = mysqli_connect('localhost', 'root', '', 'proyectoagil');
+$query = mysqli_query($con, "SELECT * FROM administrador");
+while ($row = mysqli_fetch_array($query)) {
+	echo "
           <tr>
             <td>".$row['nombre']."</td>
             <td>".$row['apellido']."</td>
@@ -213,9 +215,8 @@ div.boxlogin {
 
           </td>
         </tr>";
-      }
-    ?> 
-    </table>
+}
+?></table>
     <h2 id="titulox">Registro</h2>
     <div id="frad" class="boxlogin">
      <form action="" METHOD="POST" name="flogin" id="flogin">
@@ -227,7 +228,7 @@ div.boxlogin {
 
       <label for="">Edad</label>
       <input type="number" name="edad" class="form-control" placeholder="Escriba su edad" required>
-      
+
       <label for="">Correo ELectronico</label>
       <input type="email" name="correo" class="form-control" placeholder="Escriba su correo electronico" required>
 
@@ -245,7 +246,7 @@ div.boxlogin {
 
       <label for="">Contraseña</label>
       <input type="password" name="contrasena" id="pass" class="form-control" placeholder="Repita su contraseña" required>
-      
+
       <label for="">Repita su contraseña</label>
       <input type="password" name="recontrasena" id="repass" class="form-control" placeholder="Repita su contraseña" required>
 
@@ -255,8 +256,8 @@ div.boxlogin {
     </form>
 
   </div>
-  
-  
+
+
 
 
 </section>
@@ -267,7 +268,7 @@ div.boxlogin {
   var add = document.getElementById('add');
   var frad = document.getElementById('frad');
   var titulox = document.getElementById('titulox');
- 
+
 
 
 
@@ -331,7 +332,7 @@ div.boxlogin {
 
    </script>
 
-   <script> 
+   <script>
     function validar(f) {
       if(f.pass.value != "" && (f.pass.value == f.repass.value)){
       return true;
@@ -345,20 +346,20 @@ div.boxlogin {
 
    </script>
 
-<?php 
-  if($_POST){
-    if(isset($_POST['addadm'])){
-      require "anadiradm.php";
-    }
-  }
- ?>
-  <?php 
-      if ($_POST) {
-        if(isset($_POST['modadm'])) {
-          require "modificaradm.php";
-        }
-    }
-     ?>
+<?php
+if ($_POST) {
+	if (isset($_POST['addadm'])) {
+		require "anadiradm.php";
+	}
+}
+?>
+  <?php
+if ($_POST) {
+	if (isset($_POST['modadm'])) {
+		require "modificaradm.php";
+	}
+}
+?>
 
 
 
