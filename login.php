@@ -68,8 +68,8 @@
 		var formuser = document.getElementById('formuser');
 		var back = document.getElementById('back');
 
-		back.style.display = 'none';
-		formadmin.style.display = 'none';
+		back.style.display = 'none'
+		formadmin.style.display = 'none'
 
 		adm.onclick = function(){
 			flogin.style.display = 'none';
