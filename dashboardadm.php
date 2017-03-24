@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php session_start() ?>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -152,8 +153,7 @@ div.boxlogin {
 </header>
 <nav class="vertical">
   <ul>
-    <li><img class="img1" src="imgs/capturau.PNG" alt=""><a href="#" >Usuarios
-      </a></li>
+    <li><img class="img1" src="imgs/capturau.PNG" alt=""><a href="#"><?php echo $_SESSION['nombre'];?></a></li>
     <li><img class="img1" src="imgs/capturau.PNG" alt=""><a href="#">Gestion Administradores</a>
       <ul>
         <li><img class="img1" src="imgs/capturac.PNG" alt=""><a href="#" id="consultar">Consultar</a></li>
