@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Index</title>
+<link rel="stylesheet" href="css/menu.css">
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/owl.carousel.min.css">
 <link rel="stylesheet" href="css/owl.theme.default.min.css">
@@ -106,19 +107,10 @@ article#se img{
 h2{
   position: absolute;
   color: #fff;
-  left: 330px;
-  top: -25px;
+  left: 280px;
 
 }
 table {
-  position: absolute;
-  color: #00c4c4;
-  left: 220px;
-  top: 60px;
-  width: 500px;
-}
-
-table#tablay {
   position: absolute;
   color: #00c4c4;
   left: 50px;
@@ -126,42 +118,51 @@ table#tablay {
   width: 500px;
 }
 
-table#tablau {
-  position: absolute;
-  color: #00c4c4;
-  left: 130px;
-  top: 60px;
-  width: 500px;
-}
-
-h1 {
-  text-align: center;
-  color: gray;
-}
+    h1 {
+      text-align: center;
+      color: white;
+    }
     
-#btn {
+    #btn {
+      position: absolute;
+      left: 40%;
+    }
+
+    .boxlogin {
+      position: absolute;
+      top: 10px;
+      left: 150px;
+      border-radius: 4px;
+      margin: 50px auto;
+      width: 380px;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      background-color: rgba(40,40,40,0.5);
+      color: white;
+      box-shadow: 3px 3px white,
+    }
+td.im{
+  height: 50px;
+  -webkit-background-size: 100%;
+  background-size: 100%;
+}
+h2#titulop, #tituloz, #titulou{
   position: absolute;
-  left: 40%;
+  top: 100px;
+  left: 720px;
 }
-
-div.boxlogin {
+table#tablap, #tablau{
   position: absolute;
-  top: -20px;
-  left: 200px;
-  border-radius: 4px;
-  margin: 50px auto;
-  width: 380px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  background-color: rgba(40,40,40,0.5);
-  color: white;
-  box-shadow: 3px 3px white,
-
+  left: 550px;
+  top: 200px;
+}
+#prad{
+   position: absolute;
+  left: 550px;
+  top: 150px;
 }
 
-textarea {
-  color: black;
-}
+
 
 </style>
 </head>
@@ -180,8 +181,9 @@ textarea {
         <li><img class="img1" src="imgs/capturag.PNG" alt=""><a href="#" id="add">Añadir</a></li>
       </ul>
     </li>
-    <li><img class="img1" src="imgs/capturae.PNG" alt=""><a href="#">Gestion Productos</a>
+     <li><img class="img1" src="imgs/capturae.PNG" alt=""><a href="#">Gestion Productos</a>
       <ul>
+
         <li><img class="img1" src="imgs/capturac.PNG" alt=""><a href="#" id="consultara">Consultar</a></li>
         <li><img class="img1" src="imgs/capturag.PNG" alt=""><a href="#" id="adda">Añadir</a></li>
       </ul>
@@ -195,43 +197,39 @@ textarea {
   <h2 id="titulo">Administradores</h2> 
   <table id="tabla" class="table table-striped">
       <tr>
-        <td>Nombre</td>
-        <td>Apellido</td>
-        <td>Edad</td>
-        <td>Correo </td>
-        <td>Cedula</td>
-        <td>Ocupacion</td>
-        <td>Telefono</td>
-        <td>Direccion</td>
-        <td></td>
-        <td></td>
+        <th>Foto</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Edad</th>
+        <th>Correo </th>
+        <th>Cedula</th>
+        <th>Ocupacion</th>
+        <th>Telefono</th>
+        <th></th>
+        <th></th>
       </tr>
   
     <?php
       $con=mysqli_connect('localhost','root','','proyectoagil');
       $query=mysqli_query($con,"SELECT * FROM administrador");
-      while ($row=mysqli_fetch_array($query)) {
-        echo "
-          <tr>
-            <td>".$row['nombre']."</td>
-            <td>".$row['apellido']."</td>
-            <td>".$row['edad']."</td>
-            <td>".$row['correo']."</td>
-            <td>".$row['cedula']."</td>
-            <td>".$row['ocupacion']."</td>
-            <td>".$row['telefono']."</td>
-            <td>".$row['direccion']."</td>
-            <td><a href='modificaradm.php?id=".$row['id']."'><span class='glyphicon glyphicon-pencil'></span></a>
-           <td><a href='eliminaradm.php?id=".$row['id']."'><span class='glyphicon glyphicon-trash'></span></a></td>
-
-          </td>
-        </tr>";
-      }
-    ?> 
+      while ($row=mysqli_fetch_array($query)) { ?>
+        <tr>
+          <td class="im" style="background-image: url(<?=$row['image']?>);"></td>
+          <td><?=$row['nombre']?></td>
+          <td><?=$row['apellido']?></td>
+          <td><?=$row['edad']?></td>
+          <td><?=$row['correo']?></td>
+          <td><?=$row['cedula']?></td>
+          <td><?=$row['ocupacion']?></td>
+          <td><?=$row['telefono']?></td>
+          <td><a href="modificaradm.php?id=<?=$row['id']?>"><span class='glyphicon glyphicon-pencil'></span></a></td>
+          <td><a href="eliminaradm.php?id=<?=$row['id']?>"><span class='glyphicon glyphicon-trash'></span></a></td>
+        </tr>
+      <?php } ?> 
     </table>
     <h2 id="titulox">Registro</h2>
     <div id="frad" class="boxlogin">
-     <form action="" METHOD="POST" name="flogin" id="flogin">
+     <form action="" METHOD="POST" name="flogin" id="flogin" enctype="multipart/form-data">
       <label for="">Nombre</label>
       <input type="text" name="nombre" id="username" class="form-control" placeholder="Escriba su nombre" onkeypress="return soloLetras(event)" required>
 
@@ -261,15 +259,14 @@ textarea {
       
       <label for="">Repita su contraseña</label>
       <input type="password" name="recontrasena" id="repass" class="form-control" placeholder="Repita su contraseña" required>
-
-
+      <input type="file" id="upload" name="image" accept="image/*">   
       <br>
       <input type="submit" name="addadm" class="btn btn-success" id="btn" value="Ingresar">
     </form>
-    
+
   </div>
-      
-  <h2 id="titulop">Productos</h2> 
+</section>
+<h2 id="titulop">Productos</h2> 
   <table id="tablap" class="table table-striped">
       <tr>
         <td>Nombre</td>
@@ -524,6 +521,7 @@ textarea {
         }
     }
      ?>
+
 
 
 </body>

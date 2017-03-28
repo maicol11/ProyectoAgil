@@ -159,7 +159,7 @@ table {
  	?>
 	<h2 id="titulox2">Modificar</h2>
     <div id="frmod" class="boxlogin">
-     <form action="" METHOD="POST" name="flogin" id="flogin">
+     <form action="" METHOD="POST" name="flogin" id="flogin" enctype="multipart/form-data">
       <label for="">Nombre</label>
       <input type="text" name="nombre" value="<?php echo $row["nombre"]; ?>" id="username" class="form-control" placeholder="Escriba su nombre" onkeypress="return soloLetras(event)" required>
 
@@ -189,9 +189,8 @@ table {
       
       <label for="">Repita su contraseña</label>
       <input type="text" name="recontrasena" value="<?php echo $row["recontrasena"]; ?>" id="repass" class="form-control" placeholder="Repita su contraseña" required>
-      
-
-
+      <img id="avatar" src="<?=$row['image']?>">
+      <input type="file" id="upload" name="image" accept="image/*">
       <br>
       <input type="submit" name="modadm" class="btn btn-success" id="btn" value="Modificar">
       
@@ -212,15 +211,20 @@ table {
 						$telefono=$_POST['telefono'];
 						$direccion=$_POST['direccion'];
 						$contrasena=$_POST['contrasena'];
-						$recontrasena=$_POST['recontrasena'];			
+						$recontrasena=$_POST['recontrasena'];	
+            $nimage    = time();
+            $path      = $_FILES['image']['name'];
+            $extension = pathinfo($path, PATHINFO_EXTENSION);		
+            $image     = 'avatars/admin/'.$nimage.'.'.$extension;
 
-						if ($nombre !="" && $apellido !="" && $edad !="" && $correo !="" && $cedula !="" && $ocupacion !="" && $telefono !="" && $direccion !="" && $contrasena !="" && $recontrasena !="") {
+						if ($nombre !="" && $apellido !="" && $edad !="" && $correo !="" && $cedula !="" && $ocupacion !="" && $telefono !="" && $direccion !="" && $contrasena !="" && $recontrasena !="" && $image !="") {
 							$con=mysqli_connect('localhost','root','','proyectoagil');
-							$query="UPDATE administrador SET nombre='$nombre', apellido='$apellido', edad='$edad', correo='$correo', cedula='$cedula', ocupacion='$ocupacion', telefono='$telefono', direccion='$direccion', contrasena='$contrasena', recontrasena='$recontrasena' WHERE id='$id'";
+              move_uploaded_file($_FILES['image']['tmp_name'] , $image);
+							$query="UPDATE administrador SET nombre='$nombre', apellido='$apellido', edad='$edad', correo='$correo', cedula='$cedula', ocupacion='$ocupacion', telefono='$telefono', direccion='$direccion', contrasena='$contrasena', recontrasena='$recontrasena',image='$image' WHERE id='$id'";
 							$row=mysqli_query($con,$query);
 							if ($row) {
 								echo "<script>alert('exito');
-								windows.location.replace(dashboardadm.php);
+								windows.location.replace('dashboardadm.php');
 								</script>";
 							}else{
 								echo "<script>alert('no conect')</script>";

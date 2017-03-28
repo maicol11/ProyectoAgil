@@ -8,11 +8,15 @@
 						$telefono=$_POST['telefono'];
 						$direccion=$_POST['direccion'];
 						$contrasena=$_POST['contrasena'];
-						$recontrasena=$_POST['recontrasena'];			
-
-						if ($nombre !="" && $apellido !="" && $edad !="" && $correo !="" && $cedula !="" && $ocupacion !="" && $telefono !="" && $direccion !="" && $contrasena !="" && $recontrasena !="") {
+						$recontrasena=$_POST['recontrasena'];
+						$nimage = time();
+						$path = $_FILES['image']['name'];
+						$extension = pathinfo($path, PATHINFO_EXTENSION);
+						$image = 'avatars/admin/'.$nimage.'.'.$extension;
+						if ($nombre !="" && $apellido !="" && $edad !="" && $correo !="" && $cedula !="" && $ocupacion !="" && $telefono !="" && $direccion !="" && $contrasena !="" && $recontrasena !="" && $image !="") {
 							$con=mysqli_connect('localhost','root','','proyectoagil');
-							$query="INSERT INTO administrador VALUES('','$nombre','$apellido','$edad','$correo','$cedula','$ocupacion','$telefono','$direccion','$contrasena','$recontrasena')";
+							move_uploaded_file($_FILES['image']['tmp_name'] , $image);
+							$query="INSERT INTO administrador VALUES('','$nombre','$apellido','$edad','$correo','$cedula','$ocupacion','$telefono','$direccion','$contrasena','$recontrasena', '$image')";
 							$row=mysqli_query($con,$query);
 							if ($row) {
 								echo "<script>alert('exito');
