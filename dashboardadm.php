@@ -113,7 +113,23 @@ h2{
 table {
   position: absolute;
   color: #00c4c4;
+  left: 220px;
+  top: 60px;
+  width: 500px;
+}
+
+table#tablay {
+  position: absolute;
+  color: #00c4c4;
   left: 50px;
+  top: 60px;
+  width: 500px;
+}
+
+table#tablau {
+  position: absolute;
+  color: #00c4c4;
+  left: 130px;
   top: 60px;
   width: 500px;
 }
@@ -143,6 +159,10 @@ div.boxlogin {
 
 }
 
+textarea {
+  color: black;
+}
+
 </style>
 </head>
 <body>
@@ -152,7 +172,7 @@ div.boxlogin {
 </header>
 <nav class="vertical">
   <ul>
-    <li><img class="img1" src="imgs/capturau.PNG" alt=""><a href="#" >Usuarios
+    <li><img class="img1" src="imgs/capturau.PNG" alt=""><a href="#" id="consultaru">Usuarios
       </a></li>
     <li><img class="img1" src="imgs/capturau.PNG" alt=""><a href="#">Gestion Administradores</a>
       <ul>
@@ -160,17 +180,10 @@ div.boxlogin {
         <li><img class="img1" src="imgs/capturag.PNG" alt=""><a href="#" id="add">Añadir</a></li>
       </ul>
     </li>
-     <li><img class="img1" src="imgs/capturar.PNG" alt=""><a href="#">Gestion Catalogos</a>
+    <li><img class="img1" src="imgs/capturae.PNG" alt=""><a href="#">Gestion Productos</a>
       <ul>
-        <li><img class="img1" src="imgs/capturac.PNG" alt=""><a href="#">Consultar</a></li>
-        <li><img class="img1" src="imgs/capturag.PNG" alt=""><a href="#">Añadir</a></li>
-      </ul>
-    </li>
-     <li><img class="img1" src="imgs/capturae.PNG" alt=""><a href="#">Gestion Productos</a>
-      <ul>
-
-        <li><img class="img1" src="imgs/capturac.PNG" alt=""><a href="#">Consultar</a></li>
-        <li><img class="img1" src="imgs/capturag.PNG" alt=""><a href="#">Añadir</a></li>
+        <li><img class="img1" src="imgs/capturac.PNG" alt=""><a href="#" id="consultara">Consultar</a></li>
+        <li><img class="img1" src="imgs/capturag.PNG" alt=""><a href="#" id="adda">Añadir</a></li>
       </ul>
     </li>
     <li><img class="img1" src="imgs/capturaf.PNG" alt=""><a href="cerrar_sesion.php">Cerrar Sesion</a>
@@ -253,24 +266,108 @@ div.boxlogin {
       <br>
       <input type="submit" name="addadm" class="btn btn-success" id="btn" value="Ingresar">
     </form>
-
+    
   </div>
+      
+  <h2 id="titulop">Productos</h2> 
+  <table id="tablap" class="table table-striped">
+      <tr>
+        <td>Nombre</td>
+        <td>Precio</td>
+        <td>Cantidad</td>
+        <td>Plataforma </td>
+        <td></td>
+        <td></td>
+      </tr>
   
+    <?php
+      $con=mysqli_connect('localhost','root','','proyectoagil');
+      $query=mysqli_query($con,"SELECT * FROM productos");
+      while ($row=mysqli_fetch_array($query)) {
+        echo "
+          <tr>
+            <td>".$row['nombre']."</td>
+            <td>".$row['precio']."</td>
+            <td>".$row['cantidad']."</td>
+            <td>".$row['plataforma']."</td>
+            <td><a href='modificarpro.php?id=".$row['id']."'><span class='glyphicon glyphicon-pencil'></span></a>
+           <td><a href='eliminarpro.php?id=".$row['id']."'><span class='glyphicon glyphicon-trash'></span></a></td>
+
+          </td>
+        </tr>";
+      }
+    ?> 
+    </table>
+
+  <h2 id="tituloz">Añadir</h2> 
+  <div id="prad" class="boxlogin">
+     <form action="" METHOD="POST" name="flogin" id="flogin">
+      <label for="">Nombre</label>
+      <input type="text" name="nombre" id="" class="form-control" placeholder="Nombre producto" required>
+
+      <label for="">Precio</label>
+      <input type="text" name="precio" class="form-control" placeholder="Precio" required>
+
+      <label for="">Cantidad</label>
+      <input type="number" name="cantidad" class="form-control" placeholder="Cantidad" required>
+      
+      <label for="">Plataforma</label>
+      <textarea name="plataforma" id="" cols="50" rows="10"></textarea>
+
+      <br>
+      <input type="submit" name="addpro" class="btn btn-success" id="btn" value="Añadir">
+    </form>
+    
+  </div>
+
   
+  <h2 id="titulou">Usuarios</h2> 
+  <table id="tablau" class="table table-striped">
+      <tr>
+        <td>Nombre</td>
+        <td>Correo</td>
+        <td>Nickname</td>
+        <td>Contraseña </td>
+        <td>RepContraseña </td>
+      </tr>
+  
+    <?php
+      $con=mysqli_connect('localhost','root','','proyectoagil');
+      $query=mysqli_query($con,"SELECT * FROM usuarios");
+      while ($row=mysqli_fetch_array($query)) {
+        echo "
+          <tr>
+            <td>".$row['nombre']."</td>
+            <td>".$row['correo']."</td>
+            <td>".$row['nickname']."</td>
+            <td>".$row['pass']."</td>
+            <td>".$row['repass']."</td>
+          </td>
+        </tr>";
+      }
+    ?> 
+    </table>
+
+
 
 
 </section>
 <script>
   var consultar = document.getElementById('consultar');
+  var consultara = document.getElementById('consultara');
+  var consultaru = document.getElementById('consultaru');
   var tabla = document.getElementById('tabla');
+  var tablap = document.getElementById('tablap');
   var titulo = document.getElementById('titulo');
+  var titulop = document.getElementById('titulop'); 
+  var tituloz = document.getElementById('tituloz');  
   var add = document.getElementById('add');
+  var adda = document.getElementById('adda');
   var frad = document.getElementById('frad');
   var titulox = document.getElementById('titulox');
- 
-
-
-
+  var prad = document.getElementById('prad');
+  var tablau = document.getElementById('tablau');
+  var titulou = document.getElementById('titulou');
 
 
 
@@ -281,13 +378,12 @@ div.boxlogin {
   titulo.style.display = 'none';
   frad.style.display = 'none';
   titulox.style.display = 'none';
-
-
-
-
-
-
-
+  tablap.style.display = 'none';
+  titulop.style.display = 'none';
+  tituloz.style.display = 'none';
+  prad.style.display = 'none';
+  tablau.style.display = 'none';
+  titulou.style.display = 'none';
 
 
   consultar.onclick = function() {
@@ -295,15 +391,69 @@ div.boxlogin {
     titulo.style.display = 'block';
     frad.style.display = 'none';
     titulox.style.display = 'none';
-
+    tablap.style.display = 'none';
+    titulop.style.display = 'none';
+    prad.style.display = 'none';
+    tituloz.style.display = 'none';
+    tablau.style.display = 'none';
+    titulou.style.display = 'none';
 
 
   }
   add.onclick = function() {
+    tablap.style.display = 'none';
     tabla.style.display = 'none';
     titulo.style.display = 'none';
+    titulop.style.display = 'none';
+    prad.style.display = 'none';
+    tituloz.style.display = 'none';
+    tablau.style.display = 'none';
+    titulou.style.display = 'none';
     frad.style.display = 'block';
     titulox.style.display = 'block';
+
+  }
+
+   consultara.onclick = function() {
+    tabla.style.display = 'none';
+    titulo.style.display = 'none';
+    frad.style.display = 'none';
+    prad.style.display = 'none';
+    titulox.style.display = 'none';
+    tituloz.style.display = 'none';
+    tablau.style.display = 'none';
+    titulou.style.display = 'none';
+    tablap.style.display = 'block';
+    titulop.style.display = 'block';
+
+  }
+
+   adda.onclick = function() {
+    tablap.style.display = 'none';
+    tabla.style.display = 'none';
+    titulo.style.display = 'none';
+    titulop.style.display = 'none';
+    frad.style.display = 'none';
+    titulox.style.display = 'none';
+    tablau.style.display = 'none';
+    titulou.style.display = 'none';
+    prad.style.display = 'block';
+    tituloz.style.display = 'block';
+  }
+
+
+   consultaru.onclick = function() {
+    tabla.style.display = 'none';
+    titulo.style.display = 'none';
+    frad.style.display = 'none';
+    titulox.style.display = 'none';
+    tablap.style.display = 'none';
+    titulop.style.display = 'none';
+    prad.style.display = 'none';
+    tituloz.style.display = 'none';
+    tablau.style.display = 'block';
+    titulou.style.display = 'block';
+
 
   }
 
@@ -360,6 +510,20 @@ div.boxlogin {
     }
      ?>
 
+<?php 
+  if($_POST){
+    if(isset($_POST['addpro'])){
+      require "anadirpro.php";
+    }
+  }
+ ?>
+  <?php 
+      if ($_POST) {
+        if(isset($_POST['modpro'])) {
+          require "modificarpro.php";
+        }
+    }
+     ?>
 
 
 </body>
