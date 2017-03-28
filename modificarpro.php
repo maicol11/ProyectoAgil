@@ -200,7 +200,7 @@ table {
 							$row=mysqli_query($con,$query);
 							if ($row) {
 								echo "<script>alert('exito');
-								windows.location.replace(dashboardadm.php);
+								windows.location.replace('dashboardadm.php');
 								</script>";
 							}else{
 								echo "<script>alert('no conect')</script>";

@@ -20,7 +20,6 @@ header{
   background-color: rgba(20,20,20,0.5);
   padding: 5px;
 }
-
 img.logo {
   width: 50px;
   height: 50px;
